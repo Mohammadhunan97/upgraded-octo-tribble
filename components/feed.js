@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text,View, Linking, Image, ScrollView } from 'react-native';
 import styles from '../stylesheet';
-import apikey from '../apikey';
+import apikey from '../apikey';	
 export default class Feed extends Component {
 	constructor(props) {
 		super(props);
@@ -23,6 +23,7 @@ export default class Feed extends Component {
 	setArticles(url){
 		fetch(url + apikey).then((res)=>{
 			res.json().then((data)=>{
+				console.log(data);
 				let articles = data.articles;
 				this.setState({articles,})
 			})
@@ -30,10 +31,17 @@ export default class Feed extends Component {
 	}
   render() {
   	let articles = this.state.articles.map((article,i)=>{
-		  		return(<View key={i+'view'}>
+  		if(!article.urlToImage){
+  			article.urlToImage = 'https://vignette4.wikia.nocookie.net/beware-thebatman/images/8/84/Noimage.jpg/revision/latest?cb=20130714014738' || 'https://upload.wikimedia.org/wikipedia/commons/d/d6/Nophoto.jpg';
+  		}
+		  		return(<View key={i+'view'} style={styles.article}>
 		  			<Text key={i+'title'} style={styles.title}>{article.title}</Text>
 		  			<Image key={i+'image'} style={styles.articleImage} source={{uri: article.urlToImage}} />
+		  			<Text key={i + 'url'}
+		  			style={styles.url}
+		  			onPress={()=> Linking.openURL(article.url)}>Read the article</Text>
 		  			<Text key={i+'author'} style={styles.author}>Written by {article.author || "unknown"}</Text>
+		  			<Text key={i + 'description'} style={styles.description}>{article.description || '                          Description Unavailable'}</Text>
 		  			</View>)
 		})
   	
