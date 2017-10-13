@@ -98,7 +98,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.foobar_react_native"
+        applicationId "com.explorenews"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1

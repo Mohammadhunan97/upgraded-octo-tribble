@@ -1,4 +1,4 @@
-package com.foobar_react_native;
+package com.explorenews;
 
 import android.app.Application;
 

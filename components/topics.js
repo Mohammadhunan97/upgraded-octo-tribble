@@ -41,11 +41,9 @@ export default class Topics extends Component {
       }
     }
     return (
-      <ScrollView>
       <View style={styles.topics}>
       {topics()}
       </View>
-      </ScrollView>
     );
   }
 }

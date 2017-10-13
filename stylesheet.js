@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   topics: {
     backgroundColor:'#410099',
     alignItems: 'center',
-    height:580
+    minHeight:580
   },
   topic: {
     color: '#FFF',

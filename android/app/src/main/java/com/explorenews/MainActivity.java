@@ -1,4 +1,4 @@
-package com.foobar_react_native;
+package com.explorenews;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "foobar_react_native";
+        return "ExploreNews";
     }
 }
